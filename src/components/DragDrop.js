@@ -8,7 +8,7 @@ const PictureList = [
     id: 1,
     url:
       // "https://yt3.ggpht.com/ytc/AAUvwnjOQiXUsXYMs8lwrd4litEEqXry1-atqJavJJ09=s900-c-k-c0x00ffffff-no-rj",
-      "https://rbobkoskie1.github.io/react-att/images/Family_1.jpg",
+      "https://github.com/rbobkoskie1/react-att/blob/master/images/Family_1.jpg",
   },
   {
     id: 2,
