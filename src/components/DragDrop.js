@@ -2,32 +2,27 @@ import React, { useState } from "react";
 import Picture from "./Picture";
 import { useDrop } from "react-dnd";
 import "../App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Fireworks from "./Fireworks";
 
-console.log("UPDATE");
 const PictureList = [
   {
     id: 1,
-    url:
-      // "https://yt3.ggpht.com/ytc/AAUvwnjOQiXUsXYMs8lwrd4litEEqXry1-atqJavJJ09=s900-c-k-c0x00ffffff-no-rj",
-      "https://github.com/rbobkoskie1/react-att/src/images/Family-1.jpg",
+    url: "https://rbobkoskie1.github.io/images/Family-1.jpg",
   },
   {
     id: 2,
-    url:
-      // "https://media-exp1.licdn.com/dms/image/C4D03AQExheo0sff_yQ/profile-displayphoto-shrink_200_200/0/1590072898568?e=1630540800&v=beta&t=_W-gWZewSBYQ-UAjpGvR8h_8Vvo202IHQQissbK2aKc",
-      "https://rbobkoskie1.github.io/react-att/src/images/Family-2.jpg",
+    url: "https://rbobkoskie1.github.io/images/Family-2.jpg",
   },
   {
     id: 3,
-    url:
-      //"https://yt3.ggpht.com/pe57RF1GZibOWeZ9GwRWbjnLDCK2EEAeQ3u4iMAFNeaz-PN9uSsg1p2p32TZUedNnrUhKfoOuMM=s900-c-k-c0x00ffffff-no-rj",
-      "https://rbobkoskie1.github.io/react-att/src/images/ROB-BADGE-PIC.jpg",
+    url: "https://rbobkoskie1.github.io/images/ROB-BADGE-PIC.jpg",
   },
 ];
 
 function DragDrop() {
   const [board, setBoard] = useState([]);
-
+  
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "image",
     drop: (item) => addImageToBoard(item.id),
@@ -37,22 +32,39 @@ function DragDrop() {
   }));
 
   const addImageToBoard = (id) => {
+    // console.log('ID', id);
+    if (id !== 3) { return; };
     const pictureList = PictureList.filter((picture) => id === picture.id);
     setBoard((board) => [...board, pictureList[0]]);
+    Redirect();
   };
+
+  function Redirect() {
+      return <div className="Hooray">ERROR! PAGE NOT FOUND</div>;
+  }
+
+  const myOffice={
+    backgroundImage: "url('https://rbobkoskie1.github.io/images/att-office.jpg')",
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+  };
+  
   return (
-    <>
+    <div>
+      <div><h2>Drag an image to the office &rarr;</h2></div>
+
       <div className="Pictures">
         {PictureList.map((picture) => {
           return <Picture url={picture.url} id={picture.id} />;
         })}
       </div>
-      <div className="Board" ref={drop}>
+      
+      <div style={myOffice} className="Board" ref={drop}>
         {board.map((picture) => {
           return <Picture url={picture.url} id={picture.id} />;
         })}
       </div>
-    </>
+    </div>
   );
 }
 
