@@ -15,7 +15,8 @@ img {
 
 .Board {
   position: absolute;
-  left: 300px;
+  /* left: 300px; */
+  right: 10px;
   top: 15px;
   width: 300px;
   height: 500px;
@@ -23,15 +24,15 @@ img {
 }
 
 .Hooray {
-  display: none;
+  font-size: 30px;
   position: absolute;
-  left: 300px;
+  left: 150px;
   top: 15px;
 }
 
 .HoorayNone {
   display: none;
   position: absolute;
-  left: 300px;
+  left: 200px;
   top: 15px;
 }

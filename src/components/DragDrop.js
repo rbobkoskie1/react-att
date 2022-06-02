@@ -1,3 +1,4 @@
+import ReactDOM from 'react-dom';
 import React, { useState } from "react";
 import Picture from "./Picture";
 import { useDrop } from "react-dnd";
@@ -40,8 +41,23 @@ function DragDrop() {
   };
 
   function Redirect() {
-      return <div className="Hooray">ERROR! PAGE NOT FOUND</div>;
+    const root = ReactDOM.createRoot(document.getElementById('fireworks')); 
+    root.render(<Greeting/>);
+
+    console.log('here');
+    return <div className="Hooray">ERROR! PAGE NOT FOUND</div>;
   }
+
+  function Greeting() {
+    console.log('here');
+    return  <div>
+              <div>HOORAY! So Happy to Join Ram's Team!</div>
+                <img 
+                  src="https://rbobkoskie1.github.io/images/fireworks.gif?h=15%&w=15%"
+                  alt="new"
+                />
+            </div>;
+  };
 
   const myOffice={
     backgroundImage: "url('https://rbobkoskie1.github.io/images/att-office.jpg')",
@@ -52,6 +68,8 @@ function DragDrop() {
   return (
     <div>
       <div><h2>Drag an image to the office &rarr;</h2></div>
+
+      <div id='fireworks' className="Hooray"></div>
 
       <div className="Pictures">
         {PictureList.map((picture) => {
