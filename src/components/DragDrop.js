@@ -9,15 +9,15 @@ import Fireworks from "./Fireworks";
 const PictureList = [
   {
     id: 1,
-    url: "https://rbobkoskie1.github.io/images/Family-1.jpg",
+    url: "https://rbobkoskie1.github.io/images/ROB-BADGE-PIC.jpg",
   },
   {
     id: 2,
-    url: "https://rbobkoskie1.github.io/images/Family-2.jpg",
+    url: "https://rbobkoskie1.github.io/images/Family-1.jpg",
   },
   {
     id: 3,
-    url: "https://rbobkoskie1.github.io/images/ROB-BADGE-PIC.jpg",
+    url: "https://rbobkoskie1.github.io/images/Family-2.jpg",
   },
 ];
 
@@ -34,7 +34,7 @@ function DragDrop() {
 
   const addImageToBoard = (id) => {
     // console.log('ID', id);
-    if (id !== 3) { return; };
+    if (id !== 1) { return; };
     const pictureList = PictureList.filter((picture) => id === picture.id);
     setBoard((board) => [...board, pictureList[0]]);
     Redirect();
@@ -66,7 +66,7 @@ function DragDrop() {
   };
   
   return (
-    <div>
+    <div id="container">
       <div><h2>Drag an image to the office &rarr;</h2></div>
 
       <div id='fireworks' className="Hooray"></div>
