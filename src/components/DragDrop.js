@@ -43,9 +43,8 @@ function DragDrop() {
   function Redirect() {
     const root = ReactDOM.createRoot(document.getElementById('fireworks')); 
     root.render(<Greeting/>);
-
-    console.log('here');
-    return <div className="Hooray">ERROR! PAGE NOT FOUND</div>;
+    // console.log('here');
+    // return <div className="Hooray">ERROR! PAGE NOT FOUND</div>;
   }
 
   function Greeting() {
@@ -67,7 +66,7 @@ function DragDrop() {
   
   return (
     <div id="container">
-      <div><h2>Drag an image to the office &rarr;</h2></div>
+      <div style={{textAlign: "justify"}}><h3>Drag and drop an image on the office &rarr;</h3></div>
 
       <div id='fireworks' className="Hooray"></div>
 
